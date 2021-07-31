@@ -6,7 +6,7 @@ const URL = "http://localhost:3000/api/cameras/";
 const fetchProduct = async () => {
  await fetch(URL)
 	.then(res => res.json()) // convertit le resultat au format json*/
-	.then(data => displayCard (data))
+	.then((data) => displayCard (data))
 
 	.catch(err => console.log(" problème de connexion ", err));
 };

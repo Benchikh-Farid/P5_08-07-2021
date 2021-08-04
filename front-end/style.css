@@ -20,3 +20,13 @@
   flex-wrap: wrap;
   justify-content: center;
 }
+.card {
+  margin: 5rem;
+  /* width: 100%; */
+  box-shadow: 0px 0px 10px 0.4px;
+}
+
+.flex-product {
+  display: flex;
+  justify-content: center;
+}

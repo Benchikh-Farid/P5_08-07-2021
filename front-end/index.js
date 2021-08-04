@@ -20,14 +20,13 @@ const displayCard = (data) => {
 	
 	`
 	<div class = "cards" >
-		<a class ="link" href = "produit.html?id=${product._id}">
 		<img class = "card-img-top" src = ${product.imageUrl} alt ="image de ${product.name}">
-		<div class = "card-body">
+		<div class = "card-body bg-light">
 			<h2 class = "card-title">${product.name}</h2>
 			<p class = "card-text">${product.description}</p>
-			<h3 class = "card-text">${product.price/100 + "€"}</3>
+			<h3 class = "card-text">${product.price/100 + "€"}</3><br><br>
+			<a href="produit.html?id=${product._id}" class="btn btn-primary">Détails du produit</a>
 		</div>
-		</a>
 	</div>
 	`
 	)	
@@ -35,6 +34,8 @@ const displayCard = (data) => {
 };
 document.addEventListener("DOMContentLoaded", fetchProduct); 
 
+const pointerButton = document.querySelector(".cards");
+console.log(pointerButton);
 
 
     

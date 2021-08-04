@@ -3,10 +3,10 @@
 const querystring = window.location.search;
 // extraire l'id
  const idProduct = new URLSearchParams(querystring);
-const urlId = idProduct.get("id");
+const id = idProduct.get("id");
 // console.log(urlId);
 const contentProduct = document.querySelector(".flex-product");
-const urlFetch = `http://localhost:3000/api/cameras/${urlId}`
+const urlFetch = `http://localhost:3000/api/cameras/${id}`
 // appelle de l'api et injection de HTML
  
 const fetchProduct =  () => {
@@ -34,11 +34,11 @@ const displayProduct = (product) => {
 
   // pointer le boutton d'ajout au panier 
   const containerData = document.getElementById("select");
-  console.log(containerData);
+ 
 
   
   let contentPanier = {
-  urlId,
+  id,
   imageProduit: product.imageUrl,
   nameProduct: product.name,
   descriptionProduct:product.description,
@@ -48,9 +48,27 @@ const displayProduct = (product) => {
 // ecouter le click du boutton 
   containerData.addEventListener("click", (e)=> {
     e.preventDefault();
-   console.log(contentPanier);
-    });
-  };
+  //  console.log(contentPanier);
+   
+   // Le localstorage ----------------------
+   // la variable qui contient les key et value qui sont dans le locale storage 
+   let productInStorage = JSON.parse(localStorage.getItem("productIn"));
+   // JSON.parse pour convertir les données du localstorage qui sont au format JSON en objet javascript  
+  //  console.log(productInStorage);
+   
+   if(productInStorage){
+    productInStorage.push(contentPanier)
+    localStorage.setItem("productIn", JSON.stringify(productInStorage))
+
+  }else{
+    productInStorage = [];
+    productInStorage.push(contentPanier)
+    localStorage.setItem("productIn", JSON.stringify(productInStorage))
+    // console.log(productInStorage);
+    
+  }
+});
+};
 document.addEventListener("DOMContentLoaded", fetchProduct); 
 
 

@@ -34,8 +34,6 @@ const displayCard = (data) => {
 };
 document.addEventListener("DOMContentLoaded", fetchProduct); 
 
-const pointerButton = document.querySelector(".cards");
-console.log(pointerButton);
 
 
     

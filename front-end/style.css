@@ -30,3 +30,13 @@
   display: flex;
   justify-content: center;
 }
+#content_lens {
+  height: 100px;
+}
+.display_panier {
+  display: flex;
+  align-content: space-between;
+}
+#content {
+  width: 50%;
+}

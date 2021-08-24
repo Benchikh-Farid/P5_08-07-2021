@@ -40,3 +40,20 @@
 #content {
   width: 50%;
 }
+.img-panier {
+  width: 150px;
+}
+/* style="width: 30rem;" */
+
+.content-items {
+  border-bottom: 2px solid black;
+  width: auto;
+}
+
+.product-info {
+  margin: 3em;
+}
+.alert-infos {
+  color: red;
+  transition: 0.5s;
+}

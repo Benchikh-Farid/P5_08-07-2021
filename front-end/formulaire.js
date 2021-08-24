@@ -2,7 +2,7 @@
 
 	const urlOrderFetch = "http://localhost:3000/api/cameras/order";
 
-/*FORM TO API*/
+// envoi du form a l'api et retour id de la commande 
 const fetchApi = async function (data) {
 	let reponse = await fetch(urlOrderFetch, {
 		method: "POST",
@@ -14,13 +14,13 @@ const fetchApi = async function (data) {
 	
 	if (reponse.ok) {
 		let infos = await reponse.json();
-		window.location = "order.html?OrderId=" + infos.orderId;
+		window.location = "confirmation.html?OrderId=" + infos.orderId;
 	} else {
 		alert("erreur" + reponse.status);
 	}
 };
 
-/*ENVOI FORMULAIRE*/
+// ENVOI FORMULAIRE
 function sendForm() {
 let nom = document.getElementById("nom");
 let prenom = document.getElementById("prenom");
@@ -37,11 +37,17 @@ let alertAddress = document.getElementById("alert-adresse");
 let alertCity = document.getElementById("alert-city");
 let alertZip = document.getElementById("alert-zip");
 
+// regex qui vérifie la saisie 
+
     let nameValid = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
 	let emailValid = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 	let addressValid = /^([\w\s]+){5,}/;
 	let zipValid = /^\d{5}$|^\d{5}-\d{4}$/;
 	let cityValid = /^[a-zA-Z]+(?:[\s-][a-zA-Z]+)*$/;
+
+	
+
+	// controle saisie de l'utilisateur 
 
 	//valeur de début
     let formValid = true;
@@ -71,7 +77,7 @@ let alertZip = document.getElementById("alert-zip");
 		formValid = false;
 	}   
     
-    //mise en forme pour envoi
+    //mise en forme du form pour envoi
 let plugContact = {
     firstName: nom.value,
     lastName: prenom.value,
@@ -80,7 +86,7 @@ let plugContact = {
     city: zip.value + " " + ville.value
 };
 
-// mise en forme des produits selectionners
+// mise en forme des produits selectionnes
 
 let camera_id = []; //tableau produits
 
@@ -91,11 +97,12 @@ let camera_id = []; //tableau produits
 		}
 	}
 
-	//final order
+	//produit et form a envoyé
 	let order = {
 		contact: plugContact,
 		products: camera_id
 	};
+
 	let orderApi = JSON.stringify(order);
 	
 
@@ -103,10 +110,9 @@ let camera_id = []; //tableau produits
 		fetchApi(orderApi);
         localStorage.setItem("productIn",JSON.stringify(camera_id))
 	}
-    // formValid
 }
 
-/*ENVOYER COMMANDE*/
+// envoi commande
 const contentForm = document.getElementById("content-form");
 document.getElementById("content-form").addEventListener("submit", function (e) {
 	e.preventDefault();

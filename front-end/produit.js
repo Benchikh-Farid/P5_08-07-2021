@@ -7,8 +7,8 @@ const id = idProduct.get("id");
 // console.log(urlId);
 const contentProduct = document.querySelector(".flex-product");
 const urlFetch = `http://localhost:3000/api/cameras/${id}`
-// appelle de l'api et injection de HTML
- 
+
+// appelle de l'api et injection de HTML 
 const fetchProduct =  () => {
       fetch(urlFetch)
      .then(res => res.json()) // convertit le resultat au format json*/
@@ -19,7 +19,8 @@ const fetchProduct =  () => {
        
      .catch(err => console.log(" problème de connexion ", err));
      };
-     
+ 
+  // fonction affichage du produit    
 const displayProduct = (product) => {
   // console.log(product);
   
@@ -41,7 +42,7 @@ const displayProduct = (product) => {
 
 };
 // -------------------------------------------------------------
-
+// fonction qui affiche les lentilles(option)
 addLens = (product) => {
   const contentLens = document.getElementById("lens");
   for (let i=0; i < (product.lenses).length; i++ ){
@@ -73,14 +74,17 @@ const addToCard = (product) => {
     
 };
    // Le localstorage ----------------------
+
    let productInStorage = JSON.parse(localStorage.getItem("productIn"))||[];
    // JSON.parse pour convertir les données du localstorage qui sont au format JSON en objet javascript  
    console.log(productInStorage);
+
+  //  valeur de départ
    let itemExist = false;
     productInStorage.forEach(item => {
       // acces aux elements (boucle)
       if ((item.id === contentPanier.id)) {
-        // quantity++;
+
         itemExist = true;
       }
     });

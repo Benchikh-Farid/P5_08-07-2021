@@ -51,8 +51,7 @@ addLens = (product) => {
     contentOption.textContent =(product.lenses)[i];
     contentLens.appendChild(contentOption);
   };
-}
-
+};
 //---------------------------------------------------------------
 // ajout au panier du produit selectionner
 const addToCard = (product) => { 

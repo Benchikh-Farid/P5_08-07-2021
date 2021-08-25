@@ -8,7 +8,6 @@ if (productInStorage===null) {
 	alert("Votre panier est vide!");
 } else {
 	productInStorage.forEach(item => {
-		// displayChoice(item);
 		displayPanier(item);
 	});
 }
@@ -84,6 +83,7 @@ function removeItemFromCart(id) {
 //------------------------------------------------------------------------------
 // calcule du prix total
 // la variable qui contient le tableau des prix 
+const totalPrice = () =>{
 let totalPrix = [];
 if(productInStorage === null){
     document.querySelector(".full-cart").textContent = `Votre panier est vide! `
@@ -100,8 +100,11 @@ for (let i = 0; i< productInStorage.length; i++){
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
 const prixTotal = totalPrix.reduce(reducer,0);
 
-document.querySelector(".full-cart").textContent =`le prix total est : ${prixTotal}€`
+document.querySelector(".full-cart").textContent =`le prix total : ${prixTotal}€`
 };
+}
+ totalPrice();
+
 
 
 

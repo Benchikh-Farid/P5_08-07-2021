@@ -1,8 +1,6 @@
 // appelle de l'api
 const URL = "http://localhost:3000/api/cameras/";
 
-
-
 const fetchProduct = async () => {
  await fetch(URL)
 	.then(res => res.json()) // convertit le resultat au format json*/
@@ -12,8 +10,6 @@ const fetchProduct = async () => {
 };
 
 // CIBLER LES CONTENEUR PAGE et afficher dynamiquement
-// async pour attendre la data
-
 const displayCard = (data) => {
 
 	document.querySelector(".flex").innerHTML = data.map((product) => 

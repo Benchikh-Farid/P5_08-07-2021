@@ -1,6 +1,4 @@
-
-
-	const urlOrderFetch = "http://localhost:3000/api/cameras/order";
+const urlOrderFetch = "http://localhost:3000/api/cameras/order";
 
 // envoi du form a l'api et retour id de la commande 
 const fetchApi = async function (data) {

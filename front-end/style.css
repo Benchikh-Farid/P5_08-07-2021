@@ -97,4 +97,15 @@
 
 .content-formulaire {
   background-color: lightgrey;
+  margin: 2em;
+}
+.logo-camera {
+  width: 100px;
+  color: #6c757d;
+  filter: invert(1);
+  border-radius: 30px;
+}
+
+#content-form {
+  margin: 1em;
 }

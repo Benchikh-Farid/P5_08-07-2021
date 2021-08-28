@@ -16,7 +16,7 @@ const displayCard = (data) => {
 	
 	`
 	<div class = "cards" >
-		<img class = "card-img-top" src = ${product.imageUrl} alt ="image de ${product.name}">
+		<img class = "card-img-top" src = ${product.imageUrl} alt ="image de ${product.name}" style="height: 17.5em;">
 		<div class = "card-body bg-light">
 			<h2 class = "card-title">${product.name}</h2>
 			<p class = "card-text">${product.description}</p>
